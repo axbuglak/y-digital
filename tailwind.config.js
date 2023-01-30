@@ -19,7 +19,7 @@ module.exports = {
         blue: '#00A3FF',
         deepblue: '#016CEA',
         darkblue: '#001F56',
-        whiteCustom: '#FFFFFF',
+        whiteCustom: '#F0F4F8',
       },
     },
   },
