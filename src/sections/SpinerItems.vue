@@ -1,17 +1,13 @@
 <template>
   <section class="my-[120px] md:my-[60px] container relative">
-    <!-- <Transition name="spiner"> -->
-    <!-- <div class="md:rotate-90"> -->
-      <img
-        src="../images/spiner.svg"
-        class="spiner absolute"
-        alt="spiner"
-        ref="spiner"
-      />
-    <!-- </div> -->
-    <!-- </Transition> -->
+    <img
+      src="../images/spiner.svg"
+      class="spiner absolute"
+      alt="spiner"
+      ref="spiner"
+    />
     <div
-      class="flex justify-between gap-x-[30px] md:flex-col md: ml-24"
+      class="flex justify-between gap-x-[30px] md:flex-col md:ml-24"
       ref="spinerComponent"
     >
       <div
@@ -64,31 +60,17 @@ export default {
     window.removeEventListener('scroll', this.animOnScroll)
   },
 
-  // computed: {
-  //   spinerPosition() {
-  //     return this.$refs.spiner.getBoundingClientRect()
-  //   },
-  // },
-
   methods: {
     animOnScroll() {
       Object.entries(this.$refs.spinerComponent.children).forEach((el) => {
         const elHeight = el[1].offsetHeight
         const elOffset = this.offset(el[1])
         const scrollPos = window.pageYOffset + window.innerHeight
-        //   // console.log(this.$refs.spiner.getBoundingClientRect().left)
-        //   // console.log(el[1].getBoundingClientRect().left)
-        // console.log(this.$refs.spiner.getBoundingClientRect().left);
         if (elHeight + elOffset < scrollPos) {
-          // this.spinerPosition = this.$refs.spiner.getBoundingClientRect()
-          // setTimeout(() => {
           el[1].style.opacity = 1
-          // }, el[1].time[0]);
           this.$refs.spiner.classList.add('spin')
         } else {
-          // setTimeout(() => {
           el[1].style.opacity = 0.3
-          // }, el[1].time[1])
           this.$refs.spiner.classList.remove('spin')
         }
       })
@@ -103,7 +85,6 @@ export default {
     spinerPosition() {
       Object.entries(this.$refs.spinerComponent.children).forEach((el) => {
         if (this.spinerPosition.left >= el[1].getBoundingClientRect().left) {
-          // console.log(el[1])
           el[1].style.opacity = 1
         } else {
           console.log(1 + el[1])

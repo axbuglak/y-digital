@@ -1,11 +1,6 @@
 <template>
-  <button class="hover:scale-105 ease-in-out duration-300 rounded-[4px] gradient__blue  px-[32px] py-[12px] font-bold text-white">{{ text }}</button>
+  <button class="hover:scale-105 lg:px-3 lg:py-2 ease-in-out duration-300 rounded-[4px] text-lg lg:text-base sm:text-sm gradient__blue px-8 py-3 font-bold text-white">
+    <slot></slot>
+  </button>
 </template>
 
-<script>
-export default {
-  props: {
-    text: {type: String, required: true}
-  }
-}
-</script>

@@ -7,7 +7,7 @@ module.exports = {
       md: { max: '768px' },
       sm: { max: '480px' },
       lgR: { min: '900px' },
-      xxlR: { min: '2000px'},
+      xxlR: { min: '2000px' },
     },
     container: {
       padding: '20px',
@@ -19,6 +19,7 @@ module.exports = {
         blue: '#00A3FF',
         deepblue: '#016CEA',
         darkblue: '#001F56',
+        whiteCustom: '#FFFFFF',
       },
     },
   },
