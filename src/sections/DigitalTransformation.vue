@@ -1,14 +1,7 @@
 <template>
-  <section class="h-100vh text-center py-28 container">
-    <h1 ref="dreamR">
-      Dream, Design & Develop. 3 “D” of digital transformation
-    </h1>
-    <Transition name="dream">
-      <div
-        v-if="showDream"
-        class="bg-[url('../images/threeD.svg')] bg-contain bg-no-repeat bg-center w-full h-[100vh]"
-      ></div>
-    </Transition>
+  <section class="h-100vh text-center py-28 container" ref="dreamR">
+    <h1 class="font-bold text-darkblue mb-4 text-4xl">Dream, Design & Develop. 3 “D” of digital transformation </h1>
+    
   </section>
 </template>
 

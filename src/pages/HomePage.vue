@@ -189,16 +189,31 @@
       </div>
     </section>
     <section
-      class="bg-bottom bg-fixed text-center h-[100vh] py-28 xxlR:bg-contain bg-no-repeat sm:bg-cover sm:bg-white bg-[url('../images/formBg.png')]"
+      class="bg-bottom bg-fixed text-center py-28 xxlR:bg-contain bg-no-repeat sm:bg-cover sm:bg-white bg-[url('../images/formBg.png')]"
     >
       <h1 class="font-bold text-darkblue mb-4 text-4xl">Get in touch</h1>
-      <p class="text-[#B4BED0] font-bold text-lg max-w-[450px] mx-auto">
+      <p class="text-[#B4BED0] font-bold text-lg max-w-[450px] mx-auto sm:px-5 sm:text-xs">
         Contact us by phone: <span class="text-darkblue">+38 (050) 777 55 75</span> or email: <span class="text-darkblue">info@y-digital.team</span>
         or by using the form below
       </p>
       <form class="bg-white p-8 rounded-[4px] shadow-md max-w-[440px] mx-auto">
-        <input type="email" placeholder="Email" class="bg-[#F6F7F9] w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] px-4 py-3 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
-        <input type="tel" placeholder="Phone" class="bg-[#F6F7F9] mt-4 w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] px-4 py-3 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
+        <input type="email" v-model="email" placeholder="Email" class="bg-[#F6F7F9] w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] px-4 py-3 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
+        <form class="relative">
+          <div @click="isActiveContry = !isActiveContry" class="absolute top-1/2 bottom-1/2 left-2"><img :src="country.img" /></div>
+          <Transition name="footer">
+            <ul v-if="isActiveContry" class="absolute top-[100%] px-2 bg-[#F6F7F9]">
+              <li v-for="c in countries" class="flex items-center bg-white p-1 my-2 rounded" :key="c.name" @click="() => {
+                country = c
+                isActiveContry = false
+              }">
+                <img :src="c.img" />
+                {{ c.num }}
+              </li>
+            </ul>
+          </Transition>
+          <input type="tel" placeholder="Phone" v-model="phone" class=" bg-[#F6F7F9] mt-4 w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] pr-4 py-3 pl-14 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
+        </form>
+        
         <textarea type="text" placeholder="Enter your message regarding cooperation, investment or to discuss your project. We will provide a prompt response." class="bg-[#F6F7F9] resize-none h-[100px] mt-4 w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] px-4 py-3 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
         <button class="text-darkblue font-bold flex gap-x-2 mt-6"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_134_152)">
@@ -229,6 +244,8 @@ import SliderTwoImgOne from '../images/slider2i1.png'
 import SliderTwoImgTwo from '../images/slider2i2.png'
 import SliderTwoImgThree from '../images/slider2i3.png'
 
+import ukraineFlag from '../images/ukraineLogo.svg'
+
 import SliderTeamOne from '../images/team1.png'
 import SliderTeamTwo from '../images/team2.png'
 import SliderTeamThree from '../images/team3.png'
@@ -238,7 +255,18 @@ import SpinerItems from '@/sections/SpinerItems.vue'
 import InfoCards from '@/sections/InfoCards.vue'
 import DigitalTransformation from '@/sections/DigitalTransformation.vue'
 
+
 export default {
+//******** ACHTUNG *********//
+
+// sliderOne слайды первого слайдера(Our Products)
+// sliderTwo слайды второго слайдера(Interesting in our blog)
+// sliderTeam слайды 3 слайдера(Our Team)
+// countries - менять страны для менюшки, готовий номер телефона с кодом странны в phoneNumber
+
+//******** ACHTUNG *********//
+
+
   components: {
     Slider,
     ButtonBlue,
@@ -314,9 +342,26 @@ export default {
           prof: 'IT Manager',
         },
       ],
+      countries: [
+        {
+          num: '+380',
+          img: ukraineFlag
+        },
+        {
+          num: '+49',
+          img: ukraineFlag
+        },
+      ],
+      country: {
+          num: '+380',
+          img: ukraineFlag
+        },
       maxSliderElements: 0,
       isSlider: false,
       isSmallFooter: false,
+      email: '',
+      phone: '',
+      isActiveContry: false,
     }
   },
   created() {
@@ -328,6 +373,11 @@ export default {
       this.isSlider = false
       this.maxSliderElements = 1
       this.isSmallFooter = false
+    }
+  },
+  computed: {
+    phoneNumber() {
+      return this.country.num + this.phone
     }
   },
   methods: {
