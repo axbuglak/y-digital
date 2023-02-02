@@ -9,7 +9,7 @@
           alt="logo"
           class="w-full sm:w-[60%] sm:mx-auto"
         />
-        <p class="mt-8 md:text-xs sm:text-base sm:opacity-75">
+        <p class="mt-8 sm:mb-4 md:text-xs sm:text-base sm:opacity-75">
           Business analyst of the production process. Implementation of crm and
           erp systems in the production process for medium and small businesses.
         </p>

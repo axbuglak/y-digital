@@ -70,11 +70,12 @@ export default {
 }
 .swiper-button-next {
   background: url('../images/nextArray.svg');
-  right: 0;
+  right: 2%;
 }
 .swiper-button-prev {
   background: url('../images/backArray.svg');
-  left: 90%;
+  left: 89%;
+  /* right: 5%; */
 }
 .swiper-button-next,
 .swiper-button-prev {
@@ -88,20 +89,13 @@ export default {
   transition: 0.2s ease-in-out;
 }
 
-@media screen and (min-width: 1200px) {
-  .swiper-button-next,
-  .swiper-button-prev {
-    width: 45px;
-    height: 45px;
-  }
-  .swiper-button-prev {
-    left: 92.5%;
-  }
-}
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   .swiper-button-prev {
-    left: 88%;
+    left: 87%;
+  }
+  .swiper-button-next {
+    right: 0%;
   }
 }
 

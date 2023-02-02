@@ -12,7 +12,7 @@
 
 @layer components {
   .container {
-    @apply max-w-[1900px];
+    @apply max-w-[1200px];
   }
   .gradient__blue {
     background: linear-gradient(90deg, #1276ec 0%, #009cff 100%), #00a3ff;
@@ -64,11 +64,9 @@
 
   .card {
     transform: scaleX(0);
-    /* width: inh; */
   }
   
   .card__active {
-    padding: 1rem 2rem;
     transform: scaleX(1);
   }
 

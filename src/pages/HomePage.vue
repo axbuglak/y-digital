@@ -179,13 +179,19 @@
     </section>
     <section class="container">
       <h1 class="font-bold text-darkblue mb-10 text-4xl">Our Locations</h1>
-      <div class="flex justify-between gap-x-3 sm:flex-col sm:gap-y-4">
-        <img class="w-[50%] sm:w-full" src="../images/kyiv.svg" alt="kyiv" />
-        <img
-          class="w-[50%] sm:w-full"
-          src="../images/tallinn.svg"
-          alt="taillinn"
-        />
+      <div class="flex justify-between gap-x-3 sm:flex-col sm:gap-y-4">       
+        <div class="min-w-[50%] relative bg-center rounded-lg bg-[url('../images/kyiv.png')] h-[335px]">
+          <div class="absolute left-8 bottom-8 font-bold text-white text-1xl ">
+            <p  class="text-3xl">Head office</p>
+            <p ><img src="../images/ukraineLogo.svg" class="inline-block w-5" /> Kyiv, Ukraine</p>
+          </div>
+        </div>
+        <div class="min-w-[50%] relative bg-center rounded-lg bg-[url('../images/tallinn.png')] h-[335px]">
+          <div class="absolute left-8 bottom-8 font-bold text-white text-1xl ">
+            <p  class="text-3xl">Engineering center</p>
+            <p ><img src="../images/estonia.png" class="inline-block w-5" /> Tallinn, Estonia</p>
+          </div>
+        </div>
       </div>
     </section>
     <section
@@ -214,7 +220,7 @@
           <input type="tel" placeholder="Phone" v-model="phone" class=" bg-[#F6F7F9] mt-4 w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] pr-4 py-3 pl-14 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
         </form>
         
-        <textarea type="text" placeholder="Enter your message regarding cooperation, investment or to discuss your project. We will provide a prompt response." class="bg-[#F6F7F9] resize-none h-[100px] mt-4 w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] px-4 py-3 outline-none focus:border-b-deepblue text-[#93A1AE] font-bold" />
+        <textarea type="text" placeholder="Enter your message regarding cooperation, investment or to discuss your project. We will provide a prompt response." class="bg-[#F6F7F9] resize-none h-[104px] mt-4 w-full rounded-t-[4px] border-b-[1px] border-b-[#F6F7F9] px-4 py-3 outline-none focus:border-b-deepblue text-[#93A1AE] text-base sm:h-[128px]" />
         <button class="text-darkblue font-bold flex gap-x-2 mt-6"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_134_152)">
 <path d="M20 6H12L10 4H4C2.89 4 2.01 4.89 2.01 6L2 18C2 19.11 2.89 20 4 20H20C21.11 20 22 19.11 22 18V8C22 6.89 21.11 6 20 6ZM19 14H16V17H14V14H11V12H14V9H16V12H19V14Z" fill="#001F56"/>
@@ -371,7 +377,7 @@ export default {
       this.isSmallFooter = true
     } else {
       this.isSlider = false
-      this.maxSliderElements = 1
+      this.maxSliderElements = 3
       this.isSmallFooter = false
     }
   },
@@ -387,8 +393,9 @@ export default {
         this.isSlider = true
         this.isSmallFooter = true
       } else {
+        this.maxSliderElements = 3
+        console.log(this.maxSliderElements);
         this.isSlider = false
-        this.maxSliderElements = 1
         this.isSmallFooter = false
       }
     },
