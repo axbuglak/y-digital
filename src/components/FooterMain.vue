@@ -3,11 +3,11 @@
     <div
       class="container flex sm:flex-col sm:justify-center sm:text-center sm:items-center justify-between gap-x-5"
     >
-      <div class="max-w-[230px] sm:max-w-full sm:text-left">
+      <div class="max-w-[280px] sm:max-w-full sm:text-left">
         <img
           src="../images/logoBig.svg"
           alt="logo"
-          class="w-full sm:w-[60%] sm:mx-auto"
+          class="w-[70%] sm:w-[60%] sm:mx-auto"
         />
         <p class="mt-8 sm:mb-4 md:text-xs sm:text-base sm:opacity-75">
           Business analyst of the production process. Implementation of crm and

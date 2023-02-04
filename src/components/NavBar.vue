@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="z-50 px-6 ease-in-out duration-300 py-[20px] lg:block mx-auto flex justify-between items-center sticky top-0 bg-[rgba(0,0,0,0.75)] border-b-[1px solid rgba(255, 255, 255, 0.3)]"
+    class="z-50 px-6 ease-in-out duration-300 py-[20px] lg:block mx-auto flex justify-between items-center fixed w-full bg-[rgba(0,0,0,0.75)] border-b-[1px solid rgba(255, 255, 255, 0.3)]"
     :class="showNavbar ? 'top-[-1px]' : 'top-[-100px]'"
   >
     <div class="flex items-center justify-between">

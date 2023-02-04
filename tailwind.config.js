@@ -3,10 +3,11 @@ module.exports = {
   content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
   theme: {
     screens: {
-      lg: { max: '900px' },
+
+      lg: { max: '1025px' },
       md: { max: '768px' },
       sm: { max: '480px' },
-      lgR: { min: '900px' },
+      lgR: { min: '1025px' },
       xxlR: { min: '2000px' },
     },
     container: {
@@ -19,7 +20,7 @@ module.exports = {
         blue: '#00A3FF',
         deepblue: '#016CEA',
         darkblue: '#001F56',
-        whiteCustom: '#F0F4F8',
+        whiteCustom: 'white',
       },
     },
   },

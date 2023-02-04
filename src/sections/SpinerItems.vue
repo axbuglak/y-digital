@@ -2,9 +2,13 @@
   <section class="my-[120px] md:my-[60px] container relative">
     <img
       src="../images/spiner.svg"
-      class="spiner absolute"
+      class="spiner absolute bg"
       alt="spiner"
       ref="spiner"
+    />
+    <img
+      src="../images/spinerLine.svg"
+      class="hidden sm:inline-block absolute -z-10 top-[9%] left-7"
     />
     <div
       class="flex justify-between gap-x-[30px] md:flex-col md:ml-24"
@@ -87,7 +91,6 @@ export default {
         if (this.spinerPosition.left >= el[1].getBoundingClientRect().left) {
           el[1].style.opacity = 1
         } else {
-          console.log(1 + el[1])
           el[1].style.opacity = 0.3
         }
       })

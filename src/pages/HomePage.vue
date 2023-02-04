@@ -5,7 +5,7 @@
         class="bg-fixed xxlR:bg-contain bg-no-repeat sm:bg-cover sm:bg-[url('../images/heroSmall.png')] bg-[url('../images/hero.png')]"
       >
         <div
-          class="py-[80px] sm:py-[64px] max-w-[800px] m-auto sm:text-left sm:px-[16px] text-center text-white"
+          class="pb-20 pt-40 sm:py-[64px] max-w-[800px] m-auto sm:text-left sm:px-[16px] text-center text-white"
         >
           <h1 class="font-bold text-[36px]">
             Connecting people with technology
@@ -23,11 +23,11 @@
       </div>
     </section>
     <spiner-items />
-    <section class="container">
+    <section class="container pb-28 sm:pb-10">
       <h1 class="font-bold text-darkblue text-4xl">Our Products</h1>
       <slider :direction="'horizontal'" :slides="sliderOne">
         <template #slide="{ slide: slide }">
-          <div class="flex sm:flex-col gap-x-8 justify-center">
+          <div class="flex sm:flex-col gap-x-8 sm:pb-10 justify-center">
             <img :src="slide.img" alt="img" class="h-[90%] w-[50%] sm:w-full" />
             <div>
               <div class="flex gap-x-4 items-center sm:mt-6">
@@ -101,16 +101,20 @@
     <digital-transformation />
     <section class="bg-[#F4F9FF] py-10">
       <div class="container">
-        <h1 class="font-bold text-darkblue text-4xl">
+        <h1 class="sm:hidden font-bold text-darkblue text-4xl">
           Interesting in our blog
+        </h1>
+        <h1 class="sm:block hidden font-bold text-darkblue text-4xl">
+          Our blog
         </h1>
         <slider
           :slidesView="maxSliderElements"
           :direction="'horizontal'"
           :slides="sliderTwo"
+          :isPagination="isSlider"
         >
           <template #slide="{ slide: slide }">
-            <div class="mx-4">
+            <div class="mx-4 text-start">
               <img :src="slide.img" alt="img" class="w-full" />
               <h1 class="font-bold text-darkblue md:text-xl text-2xl my-4">
                 {{ slide.title }}
@@ -127,7 +131,7 @@
                   {{ c }}
                 </div>
               </div>
-              <button class="text-deepblue font-bold my-11">
+              <button class="text-deepblue font-bold my-11 sm:mb-0">
                 Read more
                 <svg
                   width="24"
@@ -158,28 +162,33 @@
         </div>
       </div>
     </section>
-    <section class="container py-28 sm:py-10">
-      <h1 class="font-bold text-darkblue text-4xl">Our Team</h1>
-      <slider
-        :isSlider="isSlider"
-        :direction="'horizontal'"
-        :slides="sliderTeam"
-      >
-        <template #slide="{ slide: slide }">
-          <img :src="slide.img" alt="his photo" class="w-full" />
-          <h1 class="font-bold text-darkblue text-2xl mt-6 mb-2">
-            {{ slide.name }}
-          </h1>
-          <h2 class="opacity-75 text-darkblue mb-10">{{ slide.prof }}</h2>
-        </template>
-      </slider>
-      <div class="flex justify-center mt-14">
-        <button-blue>Хочу в команду</button-blue>
-      </div>
+    <section>
+        <div class="container py-28 sm:py-10">
+          <h1 class="font-bold text-darkblue text-4xl sm:mb-0 mb-10">Our Team</h1>
+          <slider
+            :direction="'horizontal'"
+            :slides="sliderTeam"
+            :isNavigation="false"
+            :isPagination="isSlider"
+            :slidesView="maxSliderElements"
+          >
+            <template #slide="{ slide: slide }">
+              <img :src="slide.img" alt="his photo" class="w-full" />
+              <h1 class="font-bold text-darkblue text-2xl mt-6 mb-2">
+                {{ slide.name }}
+              </h1>
+              <h2 class="opacity-75 text-darkblue mb-10">{{ slide.prof }}</h2>
+            </template>
+          </slider>
+          <div class="flex justify-center mt-14">
+            <button-blue>Хочу в команду</button-blue>
+          </div>
+        </div>
     </section>
-    <section class="container">
-      <h1 class="font-bold text-darkblue mb-10 text-4xl">Our Locations</h1>
-      <div class="flex justify-between gap-x-3 sm:flex-col sm:gap-y-4">       
+    <section>
+      <div class="container">
+        <h1 class="font-bold text-darkblue mb-10 text-4xl">Our Locations</h1>
+        <div class="flex justify-between gap-x-3 sm:flex-col sm:gap-y-4">       
         <div class="min-w-[50%] relative bg-center rounded-lg bg-[url('../images/kyiv.png')] h-[335px]">
           <div class="absolute left-8 bottom-8 font-bold text-white text-1xl ">
             <p  class="text-3xl">Head office</p>
@@ -193,12 +202,13 @@
           </div>
         </div>
       </div>
+    </div>
     </section>
     <section
-      class="bg-bottom bg-fixed text-center py-28 xxlR:bg-contain bg-no-repeat sm:bg-cover sm:bg-white bg-[url('../images/formBg.png')]"
+      class="bg-bottom py-32 text-center bg-fixed xxlR:bg-contain bg-no-repeat sm:bg-cover bg-[url('../images/formBg.png')]"
     >
       <h1 class="font-bold text-darkblue mb-4 text-4xl">Get in touch</h1>
-      <p class="text-[#B4BED0] font-bold text-lg max-w-[450px] mx-auto sm:px-5 sm:text-xs">
+      <p class="text-[#B4BED0] font-bold text-lg max-w-[450px] mb-10 mx-auto sm:px-5 sm:text-xs">
         Contact us by phone: <span class="text-darkblue">+38 (050) 777 55 75</span> or email: <span class="text-darkblue">info@y-digital.team</span>
         or by using the form below
       </p>
@@ -377,7 +387,7 @@ export default {
       this.isSmallFooter = true
     } else {
       this.isSlider = false
-      this.maxSliderElements = 3
+      this.maxSliderElements = 4
       this.isSmallFooter = false
     }
   },
@@ -393,8 +403,7 @@ export default {
         this.isSlider = true
         this.isSmallFooter = true
       } else {
-        this.maxSliderElements = 3
-        console.log(this.maxSliderElements);
+        this.maxSliderElements = 4
         this.isSlider = false
         this.isSmallFooter = false
       }

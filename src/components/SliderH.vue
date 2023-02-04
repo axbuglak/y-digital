@@ -1,32 +1,22 @@
 <template>
-  <template v-if="isSlider">
-    <swiper
-      :slides-per-view="slidesView"
-      :space-between="50"
-      :loop="true"
-      :pagination="{ clickable: true, verticalClass: 'left-[0px]' }"
-      navigation
-      @swiper="onSwiper"
-      @slideChange="onSlideChange"
-      :direction="direction"
-    
+  <swiper
+    :slides-per-view="slidesView"
+    :space-between="50"
+    :loop="true"
+    :pagination="isPagination"
+    :navigation="isNavigation"
+    @swiper="onSwiper"
+    @slideChange="onSlideChange"
+    :direction="direction"
+  >
+    <swiper-slide
+      class="pb-10 pt-20 text-center"
+      v-for="(slide, idx) in slides"
+      :key="idx"
     >
-      <swiper-slide
-        class="pb-10 pt-20 text-center"
-        v-for="(slide, idx) in slides"
-        :key="idx"
-      >
-        <slot name="slide" :slide="slide"></slot>
-      </swiper-slide>
-    </swiper>
-  </template>
-  <template v-if="!isSlider">
-    <div class="flex justify-between gap-x-8">
-      <div v-for="(slide, idx) in slides" :key="idx">
-        <slot name="slide" :slide="slide"></slot>
-      </div>
-    </div>
-  </template>
+      <slot name="slide" :slide="slide"></slot>
+    </swiper-slide>
+  </swiper>
 </template>
 
 <script>
@@ -53,11 +43,11 @@ export default {
     direction: { type: String, required: true },
     slides: { type: Array, required: true },
     slidesView: { type: Number, default: 1 },
-    isSlider: { type: Boolean, default: true },
+    isNavigation: { type: Boolean, default: true },
+    isPagination: { type: Boolean, default: true },
   },
   methods: {
-    onSwiper() {
-    },
+    onSwiper() {},
     onSlideChange() {},
   },
 }
@@ -88,7 +78,6 @@ export default {
   top: 40px;
   transition: 0.2s ease-in-out;
 }
-
 
 @media screen and (max-width: 900px) {
   .swiper-button-prev {

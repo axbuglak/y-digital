@@ -32,8 +32,10 @@ export default {
       const elOffset = this.offset(this.$refs.dreamS)
       const scrollPos = window.pageYOffset + window.innerHeight
       if (elHeight + elOffset < scrollPos) {
-        this.$refs.dreamR.classList.add('dream-enter-active')
-        // setTimeout(() => {
+        this.$nextTick(() => {
+
+          this.$refs.dreamR.classList.add('dream-enter-active')
+          // setTimeout(() => {
           this.$refs.dreamI1H.style.opacity = 1
           this.$refs.dreamI1P.style.opacity = 1
         // }, 000);
@@ -46,15 +48,17 @@ export default {
           this.$refs.dreamI3H.style.opacity = 1
           this.$refs.dreamI3P.style.opacity = 1
         }, 2000);
-        
+        })
       } else {
-        this.$refs.dreamR.classList.remove('dream-enter-active')
-        this.$refs.dreamI2H.style.opacity = 0.3
-        this.$refs.dreamI2P.style.opacity = 0.3
-        this.$refs.dreamI3H.style.opacity = 0.3
-        this.$refs.dreamI3P.style.opacity = 0.3
-        this.$refs.dreamI1H.style.opacity = 0.3
-        this.$refs.dreamI1P.style.opacity = 0.3
+        this.$nextTick(() => {
+          this.$refs.dreamR.classList.remove('dream-enter-active')
+          this.$refs.dreamI2H.style.opacity = 0.3
+          this.$refs.dreamI2P.style.opacity = 0.3
+          this.$refs.dreamI3H.style.opacity = 0.3
+          this.$refs.dreamI3P.style.opacity = 0.3
+          this.$refs.dreamI1H.style.opacity = 0.3
+          this.$refs.dreamI1P.style.opacity = 0.3
+        })
       }
     },
     offset(el) {

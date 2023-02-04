@@ -9,19 +9,20 @@
       }"
     >
       <div
-        class="card ease-in-out duration-150 pt-10 px-10 md:py-2 relative h-full md:pt-[44%] sm:pt-[40%] md:px-4 "
+        class="w-full card ease-in-out duration-150 py-10 md:py-2 relative h-full md:pt-[44%] sm:pt-[40%] md:px-4"
+        :class="c.reverse ? 'pr-[15%] pl-[10px]' : 'pl-[15%] pr-[10px]'"
       >
         <h2
-          class="xxlR:text-lg md:text-xs md:text-white sm:font-bold text-deepblue uppercase bold text-sm"
+          class="xxlR:text-lg md:text-xs md:text-white font-extrabold text-deepblue uppercase bold text-sm"
         >
           {{ c.name }}
         </h2>
         <h1
-          class="xxlR:text-5xl md:text-xl md:text-white sm:font-bold sm:mb-10 bold text-darkblue mt-3 mb-4 md:mt-2 text-3xl"
+          class="xxlR:text-5xl lg:text-xl md:text-xl md:text-white font-bold sm:mb-10 bold text-darkblue mt-3 mb-4 md:mt-2 text-3xl"
         >
           {{ c.title }}
         </h1>
-        <p class="xxlR:text-xl md:text-sm text-darkblue opacity-80 text-lg">
+        <p class="xxlR:text-xl sm:text-lg lg:text-sm text-darkblue opacity-80 text-lg">
           {{ c.text }}
         </p>
         <div
