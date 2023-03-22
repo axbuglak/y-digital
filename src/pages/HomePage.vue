@@ -112,6 +112,7 @@
           :direction="'horizontal'"
           :slides="sliderTwo"
           :isPagination="isSlider"
+          :isLastNotVis="true"
         >
           <template #slide="{ slide: slide }">
             <div class="mx-4 text-start">
@@ -328,6 +329,12 @@ export default {
           title: 'Redefining the customer experience in consumer banking',
           text: 'Over the past decade, the complexity of manufacturing processes and assembly lines have significantly increased. Whereas in...',
           category: ['Development'],
+        },
+        {
+          img: SliderTwoImgThree,
+          title: 'Into the future: embracing the metaverse',
+          text: 'Over the past decade, the complexity of manufacturing processes and assembly lines have significantly increased. Whereas in...',
+          category: ['Solutions', 'CRM'],
         },
         {
           img: SliderTwoImgThree,

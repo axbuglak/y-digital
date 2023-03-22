@@ -8,13 +8,17 @@
     @swiper="onSwiper"
     @slideChange="onSlideChange"
     :direction="direction"
+    :class="{
+        'sliderHideLastElem': isLastNotVis
+    }"
   >
     <swiper-slide
       class="pb-10 pt-20 text-center"
+      
       v-for="(slide, idx) in slides"
       :key="idx"
     >
-      <slot name="slide" :slide="slide"></slot>
+      <slot name="slide"  :slide="slide"></slot>
     </swiper-slide>
   </swiper>
 </template>
@@ -45,15 +49,22 @@ export default {
     slidesView: { type: Number, default: 1 },
     isNavigation: { type: Boolean, default: true },
     isPagination: { type: Boolean, default: true },
+    isLastNotVis: {type: Boolean, default: false}
   },
   methods: {
     onSwiper() {},
-    onSlideChange() {},
+    onSlideChange(e) {
+      console.log(e.el);
+    },
   },
 }
 </script>
 
 <style>
+.sliderHideLastElem:nth-last-child() {
+  opacity: 0.8;
+}
+
 .swiper-button-next::after,
 .swiper-button-prev::after {
   display: none;
