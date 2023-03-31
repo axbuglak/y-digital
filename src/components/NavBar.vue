@@ -111,7 +111,7 @@ export default {
   data() {
     return {
       showMenu: false,
-      showNavbar: false,
+      showNavbar: true,
       lastScrollPosition: 0,
     }
   },
